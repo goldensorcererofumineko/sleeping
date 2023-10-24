@@ -14,7 +14,7 @@
             <% if user_signed_in? %>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__logout %>
-              <%= link_to "New Proto", '#', class: :nav__btn %>
+              <%= link_to "睡眠管理", '#', class: :nav__btn %>
             </div> 
             <% else %>
             <div class="nav__right">
