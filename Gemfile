@@ -76,6 +76,6 @@ group :production do
 end
 
 gem 'devise'
-gem 'webpacker'
+# gem 'webpacker'
 gem 'pry-rails'
 gem 'rubocop'
