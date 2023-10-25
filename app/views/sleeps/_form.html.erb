@@ -1,0 +1,25 @@
+<%= form_with model: sleep, local: true do |f|%>
+  <div class="field">
+    <%= f.label :start_time, "睡眠開始時間" %><br />
+    <%= f.datetime_local_field :start_time, class: "form__text", id: "sleep_start_time" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_time, "睡眠終了時間" %><br />
+    <%= f.datetime_local_field :end_time, class: "form__text", id: "sleep_end_time" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quality, "睡眠の質" %><br />
+    <%= f.select :quality, Sleep.qualities.keys, class: "form__select", id: "sleep_quality" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo, "メモ" %><br />
+    <%= f.text_area :memo, class: "form__text", id: "sleep_memo" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "保存する", class: "form__btn"  %>
+  </div>
+<% end %>

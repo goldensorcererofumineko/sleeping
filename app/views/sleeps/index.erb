@@ -1,0 +1,14 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= "こんにちは、#{current_user.nickname} さん" %>
+      </div> 
+    <h2>平均睡眠時間: <%= @average_sleep_duration %> 時間</h2>
+    <% end %>
+    <h2>睡眠記録一覧</h2>
+    <div class="card__wrapper">
+       <%= render partial: "sleep",collection:@sleeps %>
+    </div>
+  </div>
+</main>

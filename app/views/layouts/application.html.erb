@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sleeping</title>
+    <title>Protospace</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
-            <% if user_signed_in? %>
+    <header class="header">
+      <div class="inner">
+        <div class="nav">
+          <div class="nav__left">
+            <%= link_to image_tag("sleep_man.png", class: :logo), root_path %>
+            <h1 class="app-title">睡眠管理</h1>
+          </div>
+          <% if user_signed_in? %>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__logout %>
-              <%= link_to "睡眠管理", '#', class: :nav__btn %>
+              <%= link_to "睡眠管理", new_sleep_path, class: :nav__btn %>
+              <%= link_to "リロード", "javascript:location.reload();", class: :nav__btn %>
+              <%= link_to "トップページへ", root_path, class: :nav__btn %>
             </div> 
             <% else %>
             <div class="nav__right">
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+              <%= link_to "リロード", "javascript:location.reload();", class: :nav__btn %>
+              <%= link_to "トップページへ", root_path, class: :nav__btn %>
             </div>
           <% end %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer class="footer">
+      <%= link_to image_tag("hitsuji.png", class: :logo), root_path %>
+      <%= link_to image_tag("animal_hitsuji_sleep.png", class: :logo), root_path %>
+    </footer>
   </body>
 </html>
