@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, uniqueness: true
   has_many :sleeps
+  has_many :sleep_statistics
 end
