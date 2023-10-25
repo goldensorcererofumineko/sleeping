@@ -78,3 +78,4 @@ end
 gem 'devise'
 gem 'webpacker'
 gem 'pry-rails'
+gem 'rubocop'
