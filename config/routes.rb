@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "sleeps#index"
+  root to: 'sleeps#index'
   resources :sleeps 
 end

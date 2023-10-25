@@ -1,0 +1,11 @@
+<div class="sleep-details">
+  <h2>睡眠記録詳細</h2>
+  <p><strong>睡眠開始時間:</strong> <%= @sleep.start_time %></p>
+  <p><strong>睡眠終了時間:</strong> <%= @sleep.end_time %></p>
+  <p><strong>睡眠の質:</strong> <%= @sleep.quality %></p>
+  <p><strong>メモ:</strong> <%= @sleep.memo %></p>
+</div>
+
+<%= link_to "編集", edit_sleep_path(@sleep), class: :prototype__btn %>
+<%= link_to "戻る", sleeps_path, class: "btn btn-secondary" %>
+<%= link_to "削除", sleep_path(@sleep.id), data: { turbo_method: :delete },class: :prototype__btn %>

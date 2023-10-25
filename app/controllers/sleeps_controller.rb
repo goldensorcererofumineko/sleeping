@@ -16,7 +16,7 @@ class SleepsController < ApplicationController
   def create
     @sleep = Sleep.new(sleep_params)
     if @sleep.save
-      redirect_to root_path
+      redirect_to @sleep
     else
       render :new
     end
@@ -26,15 +26,17 @@ class SleepsController < ApplicationController
   end
 
   def update
-    if @sleep.update(sleep_params)
-      redirect_to 
+    sleep = Sleep.find(params[:id])
+    if sleep.update(sleep_params)
+      redirect_to @sleep
     else
       render :edit
     end
   end
 
   def destroy
-    @sleep.destroy
+    sleep = Sleep.find(params[:id])
+    sleep.destroy
     redirect_to root_path
   end
 
@@ -47,5 +49,6 @@ class SleepsController < ApplicationController
   def sleep_params
     params.require(:sleep).permit(:start_time, :end_time, :quality, :memo).merge(user_id: current_user.id)
   end
+
 end
 
